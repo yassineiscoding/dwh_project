@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17.4
+    container_name: postgres_container
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: dwh_dev
+      POSTGRES_PASSWORD: you'llneverwalkalone
+      POSTGRES_DB: my_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
